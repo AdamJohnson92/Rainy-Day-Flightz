@@ -1,14 +1,77 @@
-header {
-    border: 5px solid black;
-    margin: 10px;
-}
 
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+  }
+  
+  /* Navigation bar styles */
+  header {
+    background-color: none;
+    padding: 10px;
+    text-align: center; /* Center-align the navigation bar */
+  }
+  h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  #currentDateTime{
+    font-size: 20px;
+  }
+  nav ul {
+    list-style-type: none;
+    display: inline-block; /* Display the navigation links in a row */
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  nav ul li a:hover {
+    background-color: rgb(91, 124, 96);/* Apply hover effect */
+  }
+
+
+  /* Main content styles */
+main {
+    flex: 1; /* Fill the available vertical space */
+    text-align: center; /* Center-align the main content */
+  }
+
+  
+.info-section {
+    margin: 50px auto; /* Center the sections using margin:auto */
+    max-width: 600px; /* Set a max-width to limit the width of the sections */
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+
+/* Search container styles */
 #searchBar {
-    width: 300px;
-    height: 100px;
-    border: 5px solid black;
-    margin: 10px;
-}   
+    position: relative;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  
+  form {
+    display: inline-block;
+  }
 
 #searchResults {
     width: 300px;
@@ -16,3 +79,48 @@ header {
     border: 5px solid black;
     margin: 10px;
 }
+
+/* Search button styles */
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition effect */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: rgb(91, 124, 96); /* Apply hover effect */
+  }
+  
+  button[type="submit"]:active {
+    background-color: rgb(143, 143, 230); /* Apply click effect */
+  }
+
+/* Background image styles */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  /* Footer styles */
+footer {
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+    text-align: center;
+    background:#4b6d53;
+    color: #fff;
+    margin-top: auto;
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    }

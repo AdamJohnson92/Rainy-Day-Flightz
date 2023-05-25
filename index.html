@@ -10,13 +10,26 @@
 <body>
     <header>
         <h1> Rainy Day Flightz</h1>
+        <p id="currentDateTime"></p>
     </header>
     <main>
-        <div id="searchBar">
-            Search Form
-        </div>
+        <form id="searchBar">
+            <label for="fname"> Flight #</label>
+            <input id="searchText"  type="text">
+            <input type="submit">
+        </form>
+        <div id="flightResults"> Flight Results</div>
         <div id="weatherResults"> Weather Results</div>
-        <div id="flightResults" > Flight Results</div>
     </main>
+
+ 
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+
+<script src="assets/script.js"></script>
+
 </body>
 </html>

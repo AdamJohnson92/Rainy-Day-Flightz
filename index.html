@@ -8,20 +8,42 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+    <img class="background-image" src="" alt="airplanes over the world">
     <header>
+        <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
         <h1> Rainy Day Flightz</h1>
         <p id="currentDateTime"></p>
     </header>
     <main>
+     
+        <div class="background-image"></div>
         <form id="searchBar">
             <label for="fname"> Flight #</label>
             <input id="searchText"  type="text">
             <input id="submitButton" type="submit">
         </form>
-        <div id="flightResults"> Flight Results</div>
-        <div id="weatherResults"> Weather Results</div>
+        <!-- result containers -->
+        <section class="info-section">
+         <div id="flightResults"></div>
+            <h2>Flight Results</h2>
+            <p>Add your information here.</p>
+          </section>
+      
+          <section class="info-section">
+            <div id="weatherResults"></div>
+            <h2>Weather Results</h2>
+            <p>Add your information here.</p>
+          </section>
     </main>
-
+    <footer>
+        <p>Thank You for visiting our Site! Have a safe Flight!</p>
+      </footer>
  
     <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"

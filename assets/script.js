@@ -7,6 +7,8 @@ var currentDateTime = document.getElementById
 var geoLatitude = ""
 var geoLongitude = ""
 var submitBtn = document.getElementById("search-bar");
+var currentDateTime = document.getElementById("current-date-time");
+var submitBtn = document.getElementById("submit-button");
 // Updates the time live without need for refreshing.
 function updateDateTime() {
   currentDateTime.textContent = dayjs().format('MM-DD-YYYY HH:mm:ss');
@@ -37,6 +39,12 @@ function parksAPI(){
 	 getWeatherNow()
    })
 }
+// event listener for the form submit event
+submitBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  currentDateTime.style.display = "none";
+})
+
 
 parksAPI()
 

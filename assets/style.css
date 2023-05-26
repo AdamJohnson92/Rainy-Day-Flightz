@@ -99,18 +99,6 @@ button[type="submit"] {
     background-color: rgb(143, 143, 230); /* Apply click effect */
   }
 
-/* Background image styles */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
-    z-index: -1;
-  }
   /* Footer styles */
 footer {
     width: 100%;

@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
@@ -20,7 +19,7 @@ body {
     font-size: 36px;
     margin-bottom: 20px;
   }
-  #currentDateTime{
+  #current-date-time{
     font-size: 20px;
   }
   nav ul {
@@ -62,7 +61,7 @@ main {
   }
 
 /* Search container styles */
-#searchBar {
+#search-bar {
     position: relative;
     text-align: center;
     padding-top: 100px;
@@ -73,7 +72,7 @@ main {
     display: inline-block;
   }
 
-#searchResults {
+#search-results {
     width: 300px;
     height: 500px;
     border: 5px solid black;

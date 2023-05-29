@@ -17,7 +17,7 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 // 
 function parksAPI(){
-  var npsURL = "https://developer.nps.gov/api/v1/parks?q=tonto" 
+  var npsURL = "https://developer.nps.gov/api/v1/parks?q=" + searchText.value
   var requestOptions = {
     headers: {
       "X-Api-Key": "gR3rkp0DY7kD7YHJnn3gFoMdL58O5r1tHDvhqcpS",

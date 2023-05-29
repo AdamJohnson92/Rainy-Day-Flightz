@@ -32,8 +32,14 @@ function parksAPI(){
       console.log(data.data[2].longitude)
       geoLatitude = data.data[2].latitude
       geoLongitude = data.data[2].longitude
-
+      var parkName = document.createElement("h2")
+      var parkWeather = document.createElement("div")
+      parkWeather.setAttribute("class", "weather-report-div")
+        parkName.textContent = data.data[2].fullName;
+        parkWeather.appendChild(parkName)
+        weatherResults.appendChild(parkWeather)
  }).then(function(){
+
 	 getWeatherNow()
    })
 }
@@ -41,10 +47,11 @@ function parksAPI(){
 submitBtn.addEventListener('click', function(event) {
   event.preventDefault();
   currentDateTime.style.display = "none";
+  parksAPI()
 })
 
 
-parksAPI()
+// parksAPI()
 
 function getWeatherNow(){
     var weatherNowUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + geoLatitude + "&lon=" + geoLongitude + "&units=imperial&appid=42c66a48a76a8c63ca42a8a780c249a4"
@@ -54,6 +61,8 @@ function getWeatherNow(){
         return response.json();
     }) .then(function(data){
         console.log(data);
+        var parkTemp = document.createElement("p");
+        parkTemp.textContent = "Temperature: " + data.main.temp
         // icon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
         // tempNow.textContent = data.main.temp;
         // humNow.textContent = data.main.humidity;

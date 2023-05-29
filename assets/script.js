@@ -17,7 +17,7 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 // 
 function parksAPI(){
-  var npsURL = "https://developer.nps.gov/api/v1/parks?q=yellowstone" 
+  var npsURL = "https://developer.nps.gov/api/v1/parks?q=tonto" 
   var requestOptions = {
     headers: {
       "X-Api-Key": "gR3rkp0DY7kD7YHJnn3gFoMdL58O5r1tHDvhqcpS",
@@ -28,16 +28,16 @@ function parksAPI(){
       return response.json();
   }) .then(function(data){
       console.log(data);
-      console.log(data.data[2].latitude)
-      console.log(data.data[2].longitude)
-      geoLatitude = data.data[2].latitude
-      geoLongitude = data.data[2].longitude
+      console.log(data.data[0].latitude)
+      console.log(data.data[0].longitude)
+      geoLatitude = data.data[0].latitude
+      geoLongitude = data.data[0].longitude
       var parkName = document.createElement("h2")
-      var parkWeather = document.createElement("div")
-      parkWeather.setAttribute("class", "weather-report-div")
-        parkName.textContent = data.data[2].fullName;
-        parkWeather.appendChild(parkName)
-        weatherResults.appendChild(parkWeather)
+      // var parkWeather = document.createElement("div")
+      // parkWeather.setAttribute("class", "weather-report-div")
+        parkName.textContent = data.data[0].fullName;
+      //   parkWeather.appendChild(parkName)
+        weatherResults.appendChild(parkName)
  }).then(function(){
 
 	 getWeatherNow()
@@ -61,12 +61,19 @@ function getWeatherNow(){
         return response.json();
     }) .then(function(data){
         console.log(data);
+        parkWeatherIcon = document.createElement("img")
+        parkWeatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         var parkTemp = document.createElement("p");
-        parkTemp.textContent = "Temperature: " + data.main.temp
-        // icon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-        // tempNow.textContent = data.main.temp;
-        // humNow.textContent = data.main.humidity;
-        // windNow.textContent = data.wind.speed;
+        parkTemp.textContent = "Temperature: " + data.main.temp + "°F";
+        var parkHum = document.createElement("p");
+        parkHum.textContent = "Humidity: " + data.main.humidity + "%";
+        var parkWindSpeed = document.createElement("p");
+        parkWindSpeed.textContent = "Wind Speed: " + data.wind.speed + "MPH"
+        
+        weatherResults.appendChild(parkWeatherIcon);
+        weatherResults.appendChild(parkTemp);
+        weatherResults.appendChild(parkHum);
+        weatherResults.appendChild(parkWindSpeed);
     })
 }
 

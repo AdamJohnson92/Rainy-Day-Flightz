@@ -1,6 +1,6 @@
 // Converts HTML elements, IDs, and classes into JS variables
 var searchText = document.getElementById("search-text");
-var flightResults = document.getElementById("flight-results");
+var parkResults = document.getElementById("park-results");
 var weatherResults = document.getElementById("weather-results");
 var currentDateTime = document.getElementById("current-date-time");
 var geoLatitude = ""
@@ -26,22 +26,17 @@ function parksAPI(){
   fetch(npsURL, requestOptions)
   .then(function(response){
       return response.json();
-  }) .then(function(data){
-      console.log(data);
-      console.log(data.data[0].latitude)
-      console.log(data.data[0].longitude)
-      geoLatitude = data.data[0].latitude
-      geoLongitude = data.data[0].longitude
-      var parkName = document.createElement("h2")
-      // var parkWeather = document.createElement("div")
-      // parkWeather.setAttribute("class", "weather-report-div")
-        parkName.textContent = data.data[0].fullName;
-      //   parkWeather.appendChild(parkName)
-        weatherResults.appendChild(parkName)
- }).then(function(){
-
-	 getWeatherNow()
-   })
+  }) .then(function(res){
+      console.log(res);
+        for (let i = 0; i < res.data.length; i++){
+          var optionButton = document.createElement("button")
+          optionButton.textContent=res.data[i].fullName
+          optionButton.setAttribute("value", `${res.data[i].latitude},${res.data[i].longitude}`)
+          parkResults.appendChild(optionButton)
+          optionButton.onclick= parkSelection
+        }
+  })
+ 
 }
 // event listener for the form submit event
 submitBtn.addEventListener('click', function(event) {
@@ -50,17 +45,27 @@ submitBtn.addEventListener('click', function(event) {
   parksAPI()
 })
 
+function parkSelection (event){
+  var latLon = event.target.value
+  var parkName = event.target.textContent;
+  geoLatitude=latLon.split(",")[0]
+  geoLongitude=latLon.split(",")[1]
+  console.log(geoLatitude)
+  console.log(geoLongitude)
+  getWeatherNow(parkName)
+}
 
-// parksAPI()
-
-function getWeatherNow(){
+function getWeatherNow(park){
     var weatherNowUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + geoLatitude + "&lon=" + geoLongitude + "&units=imperial&appid=42c66a48a76a8c63ca42a8a780c249a4"
-
+    weatherResults.innerHTML=""
     fetch(weatherNowUrl)
     .then(function(response){
         return response.json();
     }) .then(function(data){
         console.log(data);
+        var parkHeader = document.createElement("h2");
+        parkHeader.textContent = park;
+        weatherResults.appendChild(parkHeader)
         parkWeatherIcon = document.createElement("img")
         parkWeatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         var parkTemp = document.createElement("p");
@@ -76,4 +81,3 @@ function getWeatherNow(){
         weatherResults.appendChild(parkWindSpeed);
     })
 }
-

@@ -7,6 +7,7 @@
 * This webpage also utilizes Day.js for Current Date & Time displays.
 * The webpage also utilizes hover features to help indicate to users what is interactive/clickable.
 * When users search for a National Park using the interactive search Bar , users will be given information about the park they searched , as well as weather information for the National Parks location.
-* When users enter National Park names incorrectly, or names that do not  match the National Park data bank they will get an automatically generated error message . 
+* Users will also be given matching results for their search . The results will be dynamically created and made to be buttons using JS. 
+* When users click on a desired result button they will be given weather information for the parks location.
 * 
 

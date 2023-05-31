@@ -5,7 +5,6 @@ var weatherResults = document.getElementById("weather-results");
 var currentDateTime = document.getElementById("current-date-time");
 var geoLatitude = ""
 var geoLongitude = ""
-
 var submitBtn = document.getElementById("submit-button");
 
 // searchText.value = localStorage.getItem("park name:")
@@ -17,7 +16,7 @@ updateDateTime();
 
 // sets time to update by 1 second
 setInterval(updateDateTime, 1000);
-// 
+// function that utilizes NPS API for national parks.
 function parksAPI(){
   var npsURL = "https://developer.nps.gov/api/v1/parks?q=" + searchText.value
   var requestOptions = {
@@ -25,6 +24,7 @@ function parksAPI(){
       "X-Api-Key": "gR3rkp0DY7kD7YHJnn3gFoMdL58O5r1tHDvhqcpS",
     }
   }
+  // fetch for NPS API to get park information matching user input
   fetch(npsURL, requestOptions)
   .then(function(response){
       return response.json();
@@ -34,6 +34,7 @@ function parksAPI(){
           var optionButton = document.createElement("button")
           optionButton.textContent=res.data[i].fullName
           optionButton.setAttribute("value", `${res.data[i].latitude},${res.data[i].longitude}`)
+          // dynamically creates park selection button.
           parkResults.appendChild(optionButton)
           optionButton.onclick= parkSelection
         }
@@ -55,9 +56,11 @@ function parkSelection (event){
   var parkName = event.target.textContent;
   geoLatitude=latLon.split(",")[0]
   geoLongitude=latLon.split(",")[1]
+  // console logs lat and lon information
   console.log(geoLatitude)
   console.log(geoLongitude)
   getWeatherNow(parkName)
+  // saves park data to users local storage.
   localStorage.setItem("park name:",parkName)
 }
 // function that grabs the park user selects and pulls it's Longitude and latitude coordinates to get the weather information for the park.
@@ -85,6 +88,7 @@ function getWeatherNow(park){
         weatherResults.appendChild(parkTemp);
         weatherResults.appendChild(parkHum);
         weatherResults.appendChild(parkWindSpeed);
+        // Saves tempature data to user's localstorage. 
         localStorage.setItem("Temperature:", storageTemp)
     })
 }

@@ -5,7 +5,7 @@ var weatherResults = document.getElementById("weather-results");
 var currentDateTime = document.getElementById("current-date-time");
 var geoLatitude = ""
 var geoLongitude = ""
-// var submitBtn = document.getElementById("search-bar");
+
 var submitBtn = document.getElementById("submit-button");
 // Updates the time live without need for refreshing.
 function updateDateTime() {

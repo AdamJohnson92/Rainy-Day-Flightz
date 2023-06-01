@@ -7,17 +7,29 @@
     <title>Rainy Day Parkz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+<style>
+  /*background image styling*/
+  body {
+    background-image: url(./assets/images/nature.jpg); alt: "mountains and trees";
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  </style>
 <body>
     <header>
       <!-- creates nav bar -->
+  <header>
         <nav>
           <!-- creates unordered list -->
             <ul>
               <!-- list item tabs -->
               <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="#">Forecast</a></li>
               <li><a href="#">Contact</a></li>
               <li ><a href="#" id="previously-viewed">Previously Viewed</a></li>
+              <!--search bar in Nav bar-->
+              <input id="search-text"  type="text" placeholder="Park Name">
+              <button id="submit-button" type="submit">Search</button>
             </ul>
           </nav>
           <!-- webpage title -->
@@ -30,22 +42,23 @@
         <h1> Previosuly Viewed Parks</h1>
       </section>
      
-        <form id="search-bar">
-            <label for="fname">Park Name</label>
-            <input id="search-text"  type="text">
-            <button id="submit-button" type="submit">Search</button>
-        </form>
         <!-- result containers -->
         <section class="info-section">
          <div id="park-results"></div>
-            <h2> Resultz</h2>
-            <p>Add your information here.</p>
+            <h2>Park Resultz</h2>
+            <p id="park-options"></p>
           </section>
       
           <section class="info-section">
             <div id="weather-results"></div>
             <h2>Weather Resultz</h2>
-            <p>Add your information here.</p>
+            <p id="park-weather"></p>
+          </section>
+
+          <section class="info-section">
+            <div id="forcast-results"></div>
+            <h2>Forecast</h2>
+            <p id="park-forecast"></p>
           </section>
     </main>
     <footer>

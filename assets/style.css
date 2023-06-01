@@ -73,6 +73,7 @@ main {
 
 .info-section {
   display: inline-flex;
+  flex-direction: column;
   position: relative;
   text-align: center;
   align-items: center;

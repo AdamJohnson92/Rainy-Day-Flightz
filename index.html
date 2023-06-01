@@ -7,13 +7,24 @@
     <title>Rainy Day Parkz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+<style>
+  /*background image styling*/
+  body {
+    background-image: url(./assets/images/nature.jpg); alt: "mountains and trees";
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  </style>
 <body>
-    <header>
+  <header>
         <nav>
             <ul>
               <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="#">Forecast</a></li>
               <li><a href="#">Contact</a></li>
+              <!--search bar in Nav bar-->
+              <input id="search-text"  type="text" placeholder="Park Name">
+              <button id="submit-button" type="submit">Search</button>
             </ul>
           </nav>
         <h1>Rainy Day Parkz</h1>
@@ -21,11 +32,6 @@
     </header>
     <main>
      
-        <form id="search-bar">
-            <label for="fname">Park Name</label>
-            <input id="search-text"  type="text">
-            <button id="submit-button" type="submit">Search</button>
-        </form>
         <!-- result containers -->
         <section class="info-section">
          <div id="park-results"></div>

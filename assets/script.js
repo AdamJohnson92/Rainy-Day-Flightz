@@ -47,6 +47,7 @@ function parksAPI(){
 }
 // event listener for the form submit event
 submitBtn.addEventListener('click', function(event) {
+  parkOptionsEl.innerHTML=""
   event.preventDefault();
   var parkName = searchText.value;
   localStorage.setItem("park name:", parkName)

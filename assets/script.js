@@ -1,4 +1,4 @@
-// Converts HTML elements, IDs, and classes into JS variables
+// Converts HTML elements, IDs, and classes into JS global variables
 var searchText = document.getElementById("search-text");
 var parkResults = document.getElementById("park-results");
 var weatherResults = document.getElementById("weather-results");
@@ -8,9 +8,10 @@ var geoLongitude = ""
 var submitBtn = document.getElementById("submit-button");
 var forecastDiv = document.getElementById("park-forecast");
 var parkOptionsEl = document.getElementById("park-options");
-var parkWeatherResultsEl = document.getElementById("park-weather")
-
+var parkWeatherResultsEl = document.getElementById("park-weather");
+var searchHistory = document.getElementById("search-history-tab");
 var previouslyViewed = document.getElementById("previously-viewed");
+var searchHistoryResults = document.getElementById("search-history-results");
 
 // searchText.value = localStorage.getItem("park name:")
 // Updates the time live without need for refreshing.
@@ -59,6 +60,7 @@ submitBtn.addEventListener('click', function(event) {
   event.preventDefault();
   // var parkName = searchText.value;
   // localStorage.setItem("park name:", parkName)
+  
 
   
   parksAPI()
@@ -68,7 +70,7 @@ submitBtn.addEventListener('click', function(event) {
 
 previouslyViewed.addEventListener('click', function(event) {
   event.preventDefault();
-  localStorage.getItem("history", currentSavedParks)
+  
 });
 
 // function that collects user input for park search and returns results for that park.

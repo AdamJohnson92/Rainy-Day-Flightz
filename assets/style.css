@@ -45,8 +45,9 @@ nav ul li a {
   padding: 10px 20px;
   border-radius: 5px;
 }
+
 /*tester nav search bar*/
-nav input [type=text]{
+nav input [type=text] {
   float: right;
   padding: 6px;
   border: none;
@@ -54,6 +55,7 @@ nav input [type=text]{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 18px;
 }
+
 nav ul li a:hover {
   background-color: rgb(109, 150, 115);
   /* Apply hover effect */
@@ -68,31 +70,33 @@ main {
   /* Center-align the main content */
 }
 
-/*info section title text*/
-H2{
-  font-size: 20px;
-  text-decoration:underline;
-}
 
 .info-section {
-  display:inline-block;
+  display: inline-flex;
   position: relative;
-  margin: 5px;
-  width:25%;
-  height:400px;
+  text-align: center;
+  align-items: center;
+  margin: 10px;
+  width: 25%;
+  height: 400px;
   border-radius: 30px;
-  background-color: lightgrey;
+  background-color: rgb(167, 162, 162);
+ color:whitesmoke;
 }
+
 /*info section title text*/
-H2{
-  font-size: 20px;
-  text-decoration:underline;
+H2 {
+  font-size: 25px;
+  text-decoration: underline;
+  text-align: center;
+  color:whitesmoke;
+  align-items: center;
 }
 
 
 #search-results {
-  width: 500px;
-  height: 500px;
+  width: auto;
+  height: auto;
   border: 5px solid black;
   margin: 10px;
 
@@ -125,6 +129,27 @@ button[type="submit"]:active {
   /* Apply click effect */
 }
 
+
+#park-forecast{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.forecastItem {
+  flex-basis: 18%;
+  padding: 10px;
+  background-color: rgb(68, 126, 235);
+  border-radius: 5px;
+}
+
+#forecastItemIcon{
+  width: 40px;
+  height: 40px;
+}
+
+
 /* Footer styles */
 footer {
   width: 100%;
@@ -139,12 +164,25 @@ footer {
   text-decoration: none;
 }
 
+/*make site responsive*/
+@media screen and (max-width: 992px) {
+  .info-section {
+    width: 50%;
+  }
+
+}
+
 @media screen and (max-width: 768px) {
+  .info-section {
+    width: 100%;
+  }
+
   main,
   nav {
     flex-direction: column;
   }
-  nav a{
+
+  nav a {
     flex-direction: column;
   }
 }

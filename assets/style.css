@@ -46,6 +46,7 @@ nav ul li a {
   border-radius: 5px;
 }
 
+
 /*tester nav search bar*/
 nav input [type=text] {
   float: right;
@@ -72,7 +73,7 @@ main {
 
 
 .info-section {
-  display: inline-flex;
+  display:inline-block;
   position: relative;
   text-align: center;
   align-items: center;

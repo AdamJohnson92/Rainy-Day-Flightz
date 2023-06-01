@@ -120,16 +120,20 @@ function getWeatherForecast(){
   
             var forecastBox = document.createElement("div")
             var forecastDate = document.createElement("p")
+            forecastDate.setAttribute("class", "forecastData")
             forecastDate.textContent = "Date: " + data.list[j].dt_txt
             var forecastIcon = document.createElement("img")
             forecastIcon.setAttribute("id", "forecastItemIcon")
                       //assistance from tutor Faran Navazi to get the icon to display
             forecastIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[j].weather[0].icon}@2x.png`)
             var forecastTemp = document.createElement("p")
+            forecastTemp.setAttribute("class", "forecastData")
             forecastTemp.textContent = "Temperature: " + data.list[j].main.temp + " °F"
             var forecastHum = document.createElement("p")
+            forecastHum.setAttribute("class", "forecastData")
             forecastHum.textContent = "Humidity: " + data.list[j].main.humidity + "%"
             var forecastWindSpeed = document.createElement("p")
+            forecastWindSpeed.setAttribute("class", "forecastData")
             forecastWindSpeed.textContent = "Wind Speed: " + data.list[j].wind.speed + " MPH"
             forecastBox.setAttribute("class", "forecastItem") 
             forecastDiv.appendChild(forecastBox) 

@@ -79,14 +79,17 @@ main {
   width: 25%;
   height: 400px;
   border-radius: 30px;
-  background-color: lightgrey;
+  background-color: rgb(167, 162, 162);
+ color:whitesmoke;
 }
 
 /*info section title text*/
 H2 {
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: underline;
   text-align: center;
+  color:whitesmoke;
+  align-items: center;
 }
 
 
@@ -124,14 +127,12 @@ button[type="submit"]:active {
   flex-direction: row;
   justify-content: space-between;
 }
-#forcast-results{
-color: #54aaf1;
-}
+
 
 .forecastItem {
   flex-basis: 18%;
   padding: 10px;
-  background-color: #68aee7;
+  background-color: rgb(68, 126, 235);
   border-radius: 5px;
 }
 

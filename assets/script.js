@@ -6,13 +6,21 @@ var currentDateTime = document.getElementById("current-date-time");
 var geoLatitude = ""
 var geoLongitude = ""
 var submitBtn = document.getElementById("submit-button");
+var previouslyViewed = document.getElementById("previously-viewed");
 
 // searchText.value = localStorage.getItem("park name:")
 // Updates the time live without need for refreshing.
 function updateDateTime() {
-  currentDateTime.textContent = dayjs().format('MM-DD-YYYY HH:mm:ss');
+  // pulls current date and time from dayjs and formats it.
+  currentDateTime.textContent = dayjs().format('  dddd, MMMM D, YYYY hh:mm A');
 }
 updateDateTime();
+function updateDateTime() {
+  const now = dayjs();
+  // adds a string to dayjs information being pulled.
+  const formattedDateTime = 'Current Date:   ' + now.format('  dddd, MMMM D, YYYY') + ', Time: ' + now.format('hh:mm A');
+  currentDateTime.textContent = formattedDateTime;
+}
 
 // sets time to update by 1 second
 setInterval(updateDateTime, 1000);
@@ -44,12 +52,20 @@ function parksAPI(){
 // event listener for the form submit event
 submitBtn.addEventListener('click', function(event) {
   event.preventDefault();
-  var parkName = searchText.value;
-  localStorage.setItem("park name:", parkName)
+  // var parkName = searchText.value;
+  // localStorage.setItem("park name:", parkName)
 
   
   parksAPI()
 })
+
+
+
+previouslyViewed.addEventListener('click', function(event) {
+  event.preventDefault();
+  localStorage.getItem("history", currentSavedParks)
+});
+
 // function that collects user input for park search and returns results for that park.
 function parkSelection (event){
   var latLon = event.target.value
@@ -61,7 +77,9 @@ function parkSelection (event){
   console.log(geoLongitude)
   getWeatherNow(parkName)
   // saves park data to users local storage.
-  localStorage.setItem("park name:",parkName)
+  var currentSavedParks = JSON.parse(localStorage.getItem("park name:")) || []
+  currentSavedParks.push(parkName)
+  localStorage.setItem("park name:", JSON.stringify(currentSavedParks))
 }
 // function that grabs the park user selects and pulls it's Longitude and latitude coordinates to get the weather information for the park.
 function getWeatherNow(park){
@@ -75,9 +93,13 @@ function getWeatherNow(park){
         var parkHeader = document.createElement("h2");
         parkHeader.textContent = park;
         weatherResults.appendChild(parkHeader)
+        // creates weather icon element.
         parkWeatherIcon = document.createElement("img")
+        // links weather icon .
         parkWeatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+        // creates p element .
         var parkTemp = document.createElement("p");
+        // adds a string to tempature data.
         parkTemp.textContent = "Temperature: " + data.main.temp + "°F";
         var parkHum = document.createElement("p");
         parkHum.textContent = "Humidity: " + data.main.humidity + "%";

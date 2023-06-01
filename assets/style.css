@@ -24,6 +24,7 @@ h1 {
 
 #current-date-time {
   font-size: 20px;
+  color: white;
 }
 
 nav ul {
@@ -95,6 +96,13 @@ H2{
   border: 5px solid black;
   margin: 10px;
 
+}
+#search-history-tab {
+  display: none;
+
+}
+#search-history-results {
+  display: none;
 }
 
 /* Search button styles */

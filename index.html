@@ -16,21 +16,31 @@
   }
   </style>
 <body>
+    <header>
+      <!-- creates nav bar -->
   <header>
         <nav>
+          <!-- creates unordered list -->
             <ul>
+              <!-- list item tabs -->
               <li><a href="#">Home</a></li>
               <li><a href="#">Forecast</a></li>
               <li><a href="#">Contact</a></li>
+              <li ><a href="#" id="previously-viewed">Previously Viewed</a></li>
               <!--search bar in Nav bar-->
               <input id="search-text"  type="text" placeholder="Park Name">
               <button id="submit-button" type="submit">Search</button>
             </ul>
           </nav>
+          <!-- webpage title -->
         <h1>Rainy Day Parkz</h1>
+        <!--creates id for date & time display  -->
         <p id="current-date-time"></p>
     </header>
     <main>
+      <section id="search-history-tab">
+        <h1> Previosuly Viewed Parks</h1>
+      </section>
      
         <!-- result containers -->
         <section class="info-section">

@@ -157,15 +157,22 @@ button[type="submit"]:active {
 
 /* Footer styles */
 footer {
-  width: 100%;       
+  width: 100%; 
+  margin: 0;
+  padding-top: 5px;      
   bottom: 0;
   background: none;
   /* margin-top: auto; */
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
   position: relative;
   background-color: rgb(50, 86, 44);
 }
+
+#footer{
+  margin: 0;
+}
+
 #footer li{
   display: inline-block;
   padding: 20px; 

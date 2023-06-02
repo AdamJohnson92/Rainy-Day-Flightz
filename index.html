@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainy Day Parkz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ewert&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <style>
@@ -15,7 +20,7 @@
     background-repeat: no-repeat;
   }
   </style>
-<body>
+<body >
     <header>
       <!-- creates nav bar -->
   <header>
@@ -33,11 +38,11 @@
           <!-- webpage title -->
         <h1>Rainy Day Parkz</h1>
         <!--creates id for date & time display  -->
-        <p id="current-date-time"></p>
+        <p id="current-date-time"><strong></strong></p>
     </header>
     <main>
       <section id="search-history-tab">
-        <h1> Previously Viewed Parks</h1>
+        <h1 id="search-history-results-h1"> Previously Viewed Parks</h1>
         <p id="search-history-results"></p>
       </section>
      
@@ -63,7 +68,7 @@
           </div>
           </section>
     </main>
-    <footer>
+    <footer id="footer-box">
       <p> Thank You For Visiting. Enjoy Your Adventure!</p>
       <ul id="footer"> Contact:
         <!--target="_blank" lets the link open in new tab-->

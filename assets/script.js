@@ -12,6 +12,9 @@ var parkWeatherResultsEl = document.getElementById("park-weather");
 var searchHistory = document.getElementById("search-history-tab");
 var previouslyViewed = document.getElementById("previously-viewed");
 var searchHistoryResults = document.getElementById("search-history-results");
+var infoSections = document.querySelectorAll(".info-section");
+var searchHistoryTabH1 = document.getElementById("search-history-results-h1");
+var footerBox = document.getElementById("footer-box");
 
 // searchText.value = localStorage.getItem("park name:")
 // Updates the time live without need for refreshing.
@@ -26,6 +29,7 @@ function updateDateTime() {
   const formattedDateTime = 'Current Date:   ' + now.format('  dddd, MMMM D, YYYY') + ', Time: ' + now.format('hh:mm A');
   currentDateTime.textContent = formattedDateTime;
 }
+
 
 // sets time to update by 1 second
 setInterval(updateDateTime, 1000);
@@ -70,6 +74,12 @@ submitBtn.addEventListener('click', function(event) {
 
 previouslyViewed.addEventListener('click', function(event) {
   event.preventDefault();
+  for (var i = 0 ; i < infoSections.length; i ++){
+    infoSections[i].style.display = "none"
+  };
+  searchHistory.style.display = "block";
+  searchHistoryTabH1.style.display = "block";
+  footerBox.style.display = "none";
   
 });
 

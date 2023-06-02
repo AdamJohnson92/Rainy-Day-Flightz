@@ -36,6 +36,7 @@ function updateDateTime() {
 // sets time to update by 1 second
 setInterval(updateDateTime, 1000);
 // function that utilizes NPS API for national parks.
+
 function parksAPI(){
   var npsURL = "https://developer.nps.gov/api/v1/parks?q=" + searchText.value
   var requestOptions = {
@@ -60,6 +61,7 @@ function parksAPI(){
   })
  
 }
+
 // event listener for the form submit event
 submitBtn.addEventListener('click', function(event) {
   parkOptionsEl.innerHTML=""
@@ -69,12 +71,9 @@ submitBtn.addEventListener('click', function(event) {
   };
   forecastText.style.display = "block"
 
- 
-  
-
-  
   parksAPI()
 })
+
 // creates event listener that refreshes page when home button is clicked.
 homeButton.addEventListener("click", function() {
   location.reload();
@@ -90,7 +89,9 @@ previouslyViewed.addEventListener('click', function(event) {
   searchHistoryResults.style.display = "block";
   footerBox.style.display = "none";
   forecastText.style.display = "none";
-  searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
+  //searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
+
+  renderPreviouslyViewed()
 });
 
 // function that collects user input for park search and returns results for that park.
@@ -105,9 +106,9 @@ function parkSelection (event){
   getWeatherNow(parkName)
   getWeatherForecast(parkName)
   // saves park data to users local storage.
-  var currentSavedParks = JSON.parse(localStorage.getItem("park name:")) || []
   currentSavedParks.push(parkName)
   localStorage.setItem("park name:", JSON.stringify(currentSavedParks))
+  console.log(currentSavedParks)
 }
 // function that grabs the park user selects and pulls it's Longitude and latitude coordinates to get the weather information for the park.
 function getWeatherNow(park){
@@ -138,8 +139,6 @@ function getWeatherNow(park){
         parkWeatherResultsEl.appendChild(parkTemp);
         parkWeatherResultsEl.appendChild(parkHum);
         parkWeatherResultsEl.appendChild(parkWindSpeed);
-        // Saves tempature data to user's localstorage. 
-        localStorage.setItem("Temperature:", storageTemp)
     })
 }
 
@@ -192,3 +191,20 @@ function getWeatherForecast(){
       })
   
   }
+
+var currentSavedParks = JSON.parse(localStorage.getItem("park name:")) || []
+  
+function renderPreviouslyViewed(parkButtonText){
+    for (var i = 0; i < currentSavedParks.length; i++) {
+        var parkButton = document.createElement("button")
+        var parkButtonText = currentSavedParks[i]
+        parkButton.textContent = parkButtonText
+        searchHistory.appendChild(parkButton)
+        parkButton.onclick = searchAgain 
+      } 
+}
+
+function searchAgain(event){
+  console.log()
+  parkSelection(event.target.textContent)
+}

@@ -15,8 +15,10 @@ var searchHistoryResults = document.getElementById("search-history-results");
 var infoSections = document.querySelectorAll(".info-section");
 var searchHistoryTabH1 = document.getElementById("search-history-results-h1");
 var footerBox = document.getElementById("footer-box");
+var forecastText = document.getElementById("forecast-header");
+var homeButton = document.getElementById("home-button");
 
-// searchText.value = localStorage.getItem("park name:")
+
 // Updates the time live without need for refreshing.
 function updateDateTime() {
   // pulls current date and time from dayjs and formats it.
@@ -62,15 +64,21 @@ function parksAPI(){
 submitBtn.addEventListener('click', function(event) {
   parkOptionsEl.innerHTML=""
   event.preventDefault();
-  // var parkName = searchText.value;
-  // localStorage.setItem("park name:", parkName)
+  for (var i = 0 ; i < infoSections.length; i ++){
+    infoSections[i].style.display = "inline-flex"
+  };
+  forecastText.style.display = "block"
+
+ 
   
 
   
   parksAPI()
 })
-
-
+// creates event listener that refreshes page when home button is clicked.
+homeButton.addEventListener("click", function() {
+  location.reload();
+})
 
 previouslyViewed.addEventListener('click', function(event) {
   event.preventDefault();
@@ -79,8 +87,10 @@ previouslyViewed.addEventListener('click', function(event) {
   };
   searchHistory.style.display = "block";
   searchHistoryTabH1.style.display = "block";
+  searchHistoryResults.style.display = "block";
   footerBox.style.display = "none";
-  
+  forecastText.style.display = "none";
+  searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
 });
 
 // function that collects user input for park search and returns results for that park.
@@ -89,7 +99,7 @@ function parkSelection (event){
   var parkName = event.target.textContent;
   geoLatitude=latLon.split(",")[0]
   geoLongitude=latLon.split(",")[1]
-  // console logs lat and lon information
+  // console logs lat and lon information.
   console.log(geoLatitude)
   console.log(geoLongitude)
   getWeatherNow(parkName)

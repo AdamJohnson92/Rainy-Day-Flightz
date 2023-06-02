@@ -15,6 +15,7 @@ header {
   background-color: none;
   padding: 10px;
   text-align: center;
+  font-family: 'Ewert', cursive;
   /* Center-align the navigation bar */
 }
 
@@ -23,6 +24,7 @@ h1 {
   color: #131111;
   font-size: 36px;
   margin-bottom: 20px;
+  font-family: 'Ewert', cursive;
 }
 
 #current-date-time {
@@ -78,7 +80,8 @@ main {
 
 
 .info-section {
-  display:inline-block;
+  display:none;
+  flex-direction: column;
   position: relative;
   text-align: center;
   align-items: center;
@@ -86,7 +89,7 @@ main {
   width: 25%;
   height: 400px;
   border-radius: 30px;
-  background-color: rgb(167, 162, 162);
+  background-color: rgba(167, 162, 162, .5);
  color:rgb(255, 255, 255);
 }
 
@@ -107,15 +110,19 @@ H2 {
   margin: 10px;
 
 }
+#forecast-header {
+  display: none;
+}
 #search-history-tab {
   display: none;
   position: absolute;
   top: 40%;
   left: 11%;
-  border: 15px solid lime;
+  border: 10px solid black;
   margin: 2px;
   width: 75%;
   height: 45%;
+  background-color: rgba(255, 255, 255, .5);
  
  
   
@@ -125,11 +132,13 @@ H2 {
 }
 #search-history-results {
   display: none;
+  font-family: 'Ewert', cursive;
+  
 }
 #search-history-results-h1 {
   font-size: xx-large;
   font-family: 'Ewert', cursive;
-  color: brown;
+  color: black;
   
 
 }

@@ -6,6 +6,9 @@ body {
   min-height: 100vh;
   justify-content: flex-start;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 /* Navigation bar styles */
 header {
@@ -46,10 +49,10 @@ nav ul li a {
   border-radius: 5px;
 }
 
-/*tester nav search bar*/
-nav input [type=text] {
-  float: right;
-  padding: 6px;
+/* nav search bar*/
+#search-text {
+  min-height: 20px;
+  width: 200px;
   border: none;
   font-weight: bold;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -68,6 +71,7 @@ main {
   /* Fill the available vertical space */
   text-align: center;
   /* Center-align the main content */
+  min-height: 60vh;
 }
 
 
@@ -82,7 +86,7 @@ main {
   height: 400px;
   border-radius: 30px;
   background-color: rgb(167, 162, 162);
- color:whitesmoke;
+ color:rgb(255, 255, 255);
 }
 
 /*info section title text*/
@@ -90,7 +94,7 @@ H2 {
   font-size: 25px;
   text-decoration: underline;
   text-align: center;
-  color:whitesmoke;
+  color: rgb(255, 255, 255);
   align-items: center;
 }
 
@@ -114,7 +118,7 @@ H2 {
 button[type="submit"] {
   padding: 5px 5px;
   font-size: 14px;
-  background-color: #7b7b7b;
+  background-color: #a7a5a5;
   color: #fff;
   border-radius: 30px;
   /*rounded button*/
@@ -141,7 +145,7 @@ button[type="submit"]:active {
 .forecastItem {
   flex-basis: 18%;
   padding: 10px;
-  background-color: rgb(68, 126, 235);
+  background-color: rgb(76, 123, 208);
   border-radius: 5px;
 }
 
@@ -153,17 +157,24 @@ button[type="submit"]:active {
 
 /* Footer styles */
 footer {
-  width: 100%;
+  width: 100%;       
   bottom: 0;
-  padding: 2px;
-  text-align: center;
-  background: #4b6d53;
-  color: #fff;
-  margin-top: auto;
-  display: inline-block;
+  background: none;
+  /* margin-top: auto; */
   font-size: 20px;
   text-decoration: none;
+  position: relative;
+  background-color: rgb(50, 86, 44);
 }
+#footer li{
+  display: inline-block;
+  padding: 20px; 
+  font-size: 25px;
+  }
+  /*link color styling*/
+  a {
+    color: rgb(216, 222, 224);
+  }
 
 /*make site responsive*/
 @media screen and (max-width: 992px) {

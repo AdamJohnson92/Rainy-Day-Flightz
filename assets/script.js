@@ -79,20 +79,6 @@ homeButton.addEventListener("click", function() {
   location.reload();
 })
 
-previouslyViewed.addEventListener('click', function(event) {
-  event.preventDefault();
-  for (var i = 0 ; i < infoSections.length; i ++){
-    infoSections[i].style.display = "none"
-  };
-  searchHistory.style.display = "block";
-  searchHistoryTabH1.style.display = "block";
-  searchHistoryResults.style.display = "block";
-  footerBox.style.display = "none";
-  forecastText.style.display = "none";
-  //searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
-
-  renderPreviouslyViewed()
-});
 
 // function that collects user input for park search and returns results for that park.
 function parkSelection (event){
@@ -193,10 +179,27 @@ function getWeatherForecast(){
   }
 
 var currentSavedParks = JSON.parse(localStorage.getItem("park name:")) || []
+
+previouslyViewed.addEventListener('click', function(event) {
+  event.preventDefault();
+  for (var i = 0 ; i < infoSections.length; i ++){
+    infoSections[i].style.display = "none"
+  };
+  searchHistory.style.display = "block";
+  searchHistoryTabH1.style.display = "block";
+  searchHistoryResults.style.display = "block";
+  footerBox.style.display = "none";
+  forecastText.style.display = "none";
+  forecastDiv.style.display = "none";
+  //searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
+
+  renderPreviouslyViewed()
+});
   
 function renderPreviouslyViewed(parkButtonText){
     for (var i = 0; i < currentSavedParks.length; i++) {
         var parkButton = document.createElement("button")
+        parkButton.setAttribute("class", "previous-park-button")
         var parkButtonText = currentSavedParks[i]
         parkButton.textContent = parkButtonText
         searchHistory.appendChild(parkButton)

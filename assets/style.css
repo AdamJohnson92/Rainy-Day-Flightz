@@ -183,6 +183,9 @@ button[type="submit"]:active {
   height: 40px;
 }
 
+.previous-park-button{
+  margin: 10px;
+}
 
 /* Footer styles */
 footer {

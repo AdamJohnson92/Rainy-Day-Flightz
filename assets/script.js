@@ -17,7 +17,7 @@ var searchHistoryTabH1 = document.getElementById("search-history-results-h1");
 var footerBox = document.getElementById("footer-box");
 var forecastText = document.getElementById("forecast-header");
 var homeButton = document.getElementById("home-button");
-
+var currentSavedParks = JSON.parse(localStorage.getItem("parkData")) || []
 
 // Updates the time live without need for refreshing.
 function updateDateTime() {
@@ -90,10 +90,15 @@ function parkSelection (event){
   console.log(geoLatitude)
   console.log(geoLongitude)
   getWeatherNow(parkName)
-  getWeatherForecast(parkName)
+  getWeatherForecast()
   // saves park data to users local storage.
-  currentSavedParks.push(parkName)
-  localStorage.setItem("park name:", JSON.stringify(currentSavedParks))
+  var parkData = {
+    name: parkName,
+    lat: geoLatitude,
+    lon: geoLongitude,
+  }
+  currentSavedParks.push(parkData)
+  localStorage.setItem("parkData", JSON.stringify(currentSavedParks))
   console.log(currentSavedParks)
 }
 // function that grabs the park user selects and pulls it's Longitude and latitude coordinates to get the weather information for the park.
@@ -178,7 +183,7 @@ function getWeatherForecast(){
   
   }
 
-var currentSavedParks = JSON.parse(localStorage.getItem("park name:")) || []
+
 
 previouslyViewed.addEventListener('click', function(event) {
   event.preventDefault();
@@ -200,7 +205,9 @@ function renderPreviouslyViewed(parkButtonText){
     for (var i = 0; i < currentSavedParks.length; i++) {
         var parkButton = document.createElement("button")
         parkButton.setAttribute("class", "previous-park-button")
-        var parkButtonText = currentSavedParks[i]
+        var parkButtonText = currentSavedParks[i].name;
+        geoLatitude = currentSavedParks[i].lat;
+        geoLongitude = currentSavedParks[i].lon;
         parkButton.textContent = parkButtonText
         searchHistory.appendChild(parkButton)
         parkButton.onclick = searchAgain 
@@ -208,6 +215,13 @@ function renderPreviouslyViewed(parkButtonText){
 }
 
 function searchAgain(event){
-  console.log()
-  parkSelection(event.target.textContent)
+  console.log(event.target)
+  searchHistory.style.display = "none";
+  for (var i = 0 ; i < infoSections.length; i ++){
+    infoSections[i].style.display = "inline-flex"
+  };
+  forecastText.style.display = "block"
+  forecastDiv.style.display = "flex"
+  getWeatherNow(event.target.textContent)
+  getWeatherForecast()
 }

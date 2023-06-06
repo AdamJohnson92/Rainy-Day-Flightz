@@ -1,4 +1,7 @@
 # Rainy-Day-Flightz
+
+## Description
+
 * The purpose of this webpage is for users to be able to track their flight status as well as weather at their arrival location.
 * This webpage can be reached via its' URL "https://adamjohnson92.github.io/Rainy-Day-Flightz/"
 * This webpage was created using HTML, CSS stylesheets, And javaScript .
@@ -18,5 +21,6 @@
 * ![image](https://github.com/AdamJohnson92/Rainy-Day-Flightz/assets/130415895/909c97f8-632d-4e62-bcef-e82fe93a513b)
 * ![image](https://github.com/AdamJohnson92/Rainy-Day-Flightz/assets/130415895/441e4fde-0802-4b8d-b679-3df2f9814f76)
 
-
+## Credits
+Assistance with fetch request and creating user-interactivity through the fetch requests courtesy of BCS TA Toacin Patwary, and BCS tutor Faran Navazi.
 

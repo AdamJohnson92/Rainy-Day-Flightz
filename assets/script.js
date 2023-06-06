@@ -196,6 +196,7 @@ previouslyViewed.addEventListener('click', function(event) {
   footerBox.style.display = "none";
   forecastText.style.display = "none";
   forecastDiv.style.display = "none";
+  parkOptionsEl.style.display = "none";
   //searchHistoryResults.innerHTML = JSON.parse(localStorage.getItem("park name:")) || []
 
   renderPreviouslyViewed()

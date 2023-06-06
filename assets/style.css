@@ -80,6 +80,7 @@ main {
 
 
 .info-section {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
   display:none;
   flex-direction: column;
   position: relative;
@@ -90,11 +91,12 @@ main {
   height: 400px;
   border-radius: 30px;
   background-color: rgba(167, 162, 162, .5);
- color:rgb(255, 255, 255);
+ color:black;
 }
 
 /*info section title text*/
 H2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 25px;
   text-decoration: underline;
   text-align: center;
@@ -113,6 +115,7 @@ H2 {
 #forecast-header {
   display: none;
 }
+
 #search-history-tab {
   display: none;
   position: absolute;
@@ -172,6 +175,8 @@ button[type="submit"]:active {
 
 
 .forecastItem {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #131111;
   flex-basis: 18%;
   padding: 10px;
   background-color: rgb(76, 123, 208);

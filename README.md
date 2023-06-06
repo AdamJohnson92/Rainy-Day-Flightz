@@ -2,7 +2,7 @@
 
 ## Description
 
-* The purpose of this webpage is for users to be able to track their flight status as well as weather at their arrival location.
+* The purpose of this webpage is for users to be able to search for a United States National Park and be able to see the current weather as well as a 5 day forecast for that park.
 * This webpage can be reached via its' URL "https://adamjohnson92.github.io/Rainy-Day-Flightz/"
 * This webpage was created using HTML, CSS stylesheets, And javaScript .
 * This webpage also utilizes web openWeatherMap's API for current  weather information as well as National Park Service API for National park information.
